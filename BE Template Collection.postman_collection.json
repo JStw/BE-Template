@@ -1,0 +1,267 @@
+{
+	"id": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+	"name": "BE Template Collection",
+	"description": "Postman Echo is service you can use to test your REST clients and make sample API calls. It provides endpoints for `GET`, `POST`, `PUT`, various auth mechanisms and other utility endpoints.\n\nThe documentation for the endpoints as well as example responses can be found at [https://postman-echo.com](https://postman-echo.com/?source=echo-collection-app-onboarding)",
+	"order": [
+		"f2d41115-666f-e03d-aae9-1a776e6b0c5c",
+		"9fe59dcd-9795-7eeb-c7c8-32f878de90c1",
+		"845414d0-9cb8-f024-e2a2-d2ed322d62cd",
+		"b274252b-9b3d-4206-adb2-8cb3e83ecc36",
+		"e92dde61-7b69-3a5d-6cb6-c4f4a07c121f",
+		"81dff65e-a121-ae72-3378-1a08fd432d76",
+		"5fc8b7dc-6dd8-1f43-54b8-11f4498f7929"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 0,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "5fc8b7dc-6dd8-1f43-54b8-11f4498f7929",
+			"headers": "profile_id: 5\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "5",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/admin/best-clients?start=2020-06-08&end=2023-06-10&limit=3",
+			"queryParams": [
+				{
+					"key": "start",
+					"value": "2020-06-08",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "end",
+					"value": "2023-06-10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "limit",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755611111,
+			"name": "BEST CLIENTS",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": []
+		},
+		{
+			"id": "81dff65e-a121-ae72-3378-1a08fd432d76",
+			"headers": "profile_id: 5\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "5",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/admin/best-profession?start=2020-06-08&end=2023-06-10",
+			"queryParams": [
+				{
+					"key": "start",
+					"value": "2020-06-08",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "end",
+					"value": "2023-06-10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755608000,
+			"name": "BEST PROF.",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": []
+		},
+		{
+			"id": "845414d0-9cb8-f024-e2a2-d2ed322d62cd",
+			"headers": "profile_id: 1\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/contracts/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755533795,
+			"name": "CONTRACT BY ID",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": []
+		},
+		{
+			"id": "9fe59dcd-9795-7eeb-c7c8-32f878de90c1",
+			"headers": "profile_id: 1\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/contracts",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755530062,
+			"name": "CONTRACTS",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": []
+		},
+		{
+			"id": "b274252b-9b3d-4206-adb2-8cb3e83ecc36",
+			"headers": "profile_id: 1\n//amount: \nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "",
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/balances/deposit/2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755598971,
+			"name": "DEPOSIT",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": [],
+			"rawModeData": "{\"amount\": 2}"
+		},
+		{
+			"id": "e92dde61-7b69-3a5d-6cb6-c4f4a07c121f",
+			"headers": "profile_id: 1\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/jobs/2/pay",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755542993,
+			"name": "PAY JOB",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": []
+		},
+		{
+			"id": "f2d41115-666f-e03d-aae9-1a776e6b0c5c",
+			"headers": "profile_id: 1\n",
+			"headerData": [
+				{
+					"key": "profile_id",
+					"value": "1",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3001/v1/jobs/unpaid",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1654755538676,
+			"name": "JOBS UNPAID",
+			"description": "",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"responses": []
+		}
+	]
+}

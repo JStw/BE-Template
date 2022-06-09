@@ -1,0 +1,304 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "BE Template Master",
+    "version": "v1",
+    "description": "Documentation for all the routes of BE Template Master project."
+  },
+  "paths": {
+    "/v1/contracts": {
+      "get": {
+        "operationId": "getContracts",
+        "summary": "Returns a list of contracts non terminated belonging to a user (client or contractor)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "profile_id",
+            "required": true,
+            "type": "string",
+            "in": "header",
+            "description": "The profile_id to use"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{Object[]} result Contains database records about the contracts"
+          },
+          "204": {
+            "description": "If no results found"
+          },
+          "401": {
+            "description": "Authentication failed"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/v1/contracts/{id}": {
+      "get": {
+        "operationId": "getContract",
+        "summary": "Return a contract that belong to an user",
+        "parameters": [
+          {
+            "name": "profile_id",
+            "required": true,
+            "type": "string",
+            "in": "header",
+            "description": "The profile_id to use"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The id of the contract"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "{Object} result Contains database records about the contract"
+          },
+          "204": {
+            "description": "If no results found"
+          },
+          "401": {
+            "description": "Authentication failed"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/v1/jobs/unpaid": {
+      "get": {
+        "operationId": "getJobsUnpaid",
+        "summary": "Get all unpaid jobs for a user (***either*** a client or contractor), for ***active contracts only***",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "profile_id",
+            "required": true,
+            "type": "string",
+            "in": "header",
+            "description": "The profile_id to use"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{Object[]} result Contains database records about the job unpaids"
+          },
+          "204": {
+            "description": "If no results found"
+          },
+          "401": {
+            "description": "Authentication failed"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/v1/jobs/{job_id}/pay": {
+      "post": {
+        "operationId": "payJob",
+        "summary": "Pay for a job",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "profile_id",
+            "required": true,
+            "type": "string",
+            "in": "header",
+            "description": "The profile_id to use"
+          },
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The id of the job"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{Object} result of the Job updated"
+          },
+          "400": {
+            "description": "Bad request returned if profile balance is lower than the price"
+          },
+          "401": {
+            "description": "Authentication failed"
+          },
+          "404": {
+            "description": "Job not found"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/v1/balances/deposit/{user_id}": {
+      "post": {
+        "operationId": "deposit",
+        "summary": "Deposits money into the the the balance of a client",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "profile_id",
+            "required": true,
+            "type": "string",
+            "in": "header",
+            "description": "The profile_id to use"
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The id of the user to depose"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "required": ["amount"],
+              "properties": {
+                "amount": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "description": "Amount to depose"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content means deposit request succeeded."
+          },
+          "400": {
+            "description": "Bad request if amount passed is NaN, profile balance lower than amount or the amount to deposit is more than 25% his total of jobs to pay"
+          },
+          "401": {
+            "description": "Authentication failed"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/v1/admin/best-profession": {
+        "get": {
+          "operationId": "getBestProfession",
+          "summary": "Returns the profession that earned the most money (sum of jobs paid) for any contactor that worked in the query time",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "profile_id",
+              "required": true,
+              "type": "string",
+              "in": "header",
+              "description": "The profile_id to use"
+            },
+            {
+              "name": "start",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Start date (Format YYYY-MM-DD expected)"
+            },
+            {
+              "name": "end",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "End date (Format YYYY-MM-DD expected)"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Result Contains database records about the best profession"
+            },
+            "401": {
+              "description": "Authentication failed"
+            },
+            "500": {
+              "description": "Database error"
+            }
+          }
+        }
+      },
+    "/v1/admin/best-clients": {
+      "get": {
+        "operationId": "getBestClients",
+        "summary": "Returns the clients the paid the most for jobs in the query time period.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "profile_id",
+            "required": true,
+            "type": "string",
+            "in": "header",
+            "description": "The profile_id to use"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Start date (Format YYYY-MM-DD expected)"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "End date (Format YYYY-MM-DD expected)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "You could limit your results (default is 2)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Result Contains database records about the best profession"
+          },
+          "401": {
+            "description": "Authentication failed"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    }
+  },
+  "consumes": [
+    "application/json"
+  ]
+}
