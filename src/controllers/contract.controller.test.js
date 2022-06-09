@@ -84,19 +84,4 @@ describe('ContractController', () => {
             })
         })
     })
-
-    /*
-    try {
-
-            if (!contracts?.length) {
-                return res.status(204).end()
-            }
-
-            res.json(contracts)
-        } catch (e) {
-            return res.status(500).json({
-                error: `Something went wrong with database call, err: ${e.message || 'unknown'}`
-            })
-        }
-     */
 })
