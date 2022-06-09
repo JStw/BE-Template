@@ -22,7 +22,7 @@ describe('ContractController', () => {
                 {
                     model: Profile,
                     as: 'Client',
-                    attributes: ['id'],
+                    attributes: ['id', 'firstName', 'lastName', 'type'],
                     where: {
                         id: '1234'
                     }

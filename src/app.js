@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const {sequelize} = require('./model')
 const AdminController = require('./controllers/admin.controller')
 const ContractController = require('./controllers/contract.controller')
@@ -11,6 +12,10 @@ const swaggerDocument = require('./swagger.json');
 
 const app = express();
 
+app.use(cors({
+    origin: 'http://localhost:4200',
+    exposedHeaders: 'profile_id'
+}));
 app.use(bodyParser.json());
 app.set('sequelize', sequelize)
 app.set('models', sequelize.models)

@@ -27,7 +27,7 @@ class ContractController {
                     {
                         model: Profile,
                         as: alias,
-                        attributes: ['id'],
+                        attributes: ['id', 'firstName', 'lastName', 'type'],
                         where: {
                             id: profile.id
                         }
@@ -70,7 +70,7 @@ class ContractController {
                 include: [
                     {
                         model: Profile,
-                        attributes: ['id'],
+                        attributes: ['id', 'firstName', 'lastName', 'type'],
                         as: alias,
                         where: {
                             id: profile.id
